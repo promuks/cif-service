@@ -28,10 +28,10 @@
 				"source": {
 					"type": "Git",
 					"git": {
-						"uri": "https://github.com/ve156354/osev3-examples.git",
+						"uri": "https://github.com/promuks/cif-service.git",
 						"ref": "master"
 					},
-					"contextDir": "spring-boot/springboot-sti"
+					"contextDir": "springboot-sti"
 				},
 				"strategy": {
 					"type": "Docker",
