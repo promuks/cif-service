@@ -36,6 +36,7 @@
 				"strategy": {
 					"type": "Docker",
 					"dockerStrategy": {
+						"noCache": true,
 						"from": {
 							"kind": "ImageStreamTag",
 							"name": "rhel7.2:latest"
