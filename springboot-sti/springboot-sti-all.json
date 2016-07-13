@@ -1,6 +1,6 @@
 {
 	"kind": "List",
-	"apiVersion": "v13",
+	"apiVersion": "v1",
 	"metadata": {
 		"name": "springboot-sti"
 	},
