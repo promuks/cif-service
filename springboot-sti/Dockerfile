@@ -41,6 +41,7 @@ RUN chown -R 1001:1001 /opt/openshift
 ADD ldapcert /usr/local/certs
 ADD scripts/ /usr/local/certs
 RUN chmod -R ug+rwx /usr/local/certs/addldapcert.sh
+RUN chmod +x /usr/local/certs/addldapcert.sh
 RUN /usr/local/certs/addldapcert.sh
 
 # This default user is created in the openshift/base-centos7 image
