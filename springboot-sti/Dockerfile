@@ -6,9 +6,23 @@ MAINTAINER Veerendra Akula <veerendra.aakula>
 # Java jdk 8, Maven 3.3
 ENV MAVEN_VERSION 3.3.9
 
-RUN yum install -y --enablerepo rhel-7-server-optional-rpms \
-    tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
-    yum clean all -y && \
+RUN yum install -y --enablerepo rhel-7-server-optional-rpms tar unzip bc which lsof
+
+ENV JAVA_VERSION 8u45
+ENV BUILD_VERSION b14
+
+# Upgrading system
+RUN yum -y upgrade
+RUN yum -y install wget
+
+# Downloading Java
+RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-$BUILD_VERSION/jdk-$JAVA_VERSION-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
+
+RUN yum -y install /tmp/jdk-8-linux-x64.rpm
+    
+#tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
+
+RUN yum clean all -y && \
     (curl -0 http://apache.mirrors.lucidnetworks.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz | \
     tar -zx -C /usr/local) && \
     mv /usr/local/apache-maven-$MAVEN_VERSION /usr/local/maven && \
